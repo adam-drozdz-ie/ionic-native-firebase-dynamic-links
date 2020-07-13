@@ -70,5 +70,5 @@ export declare class FirebaseDynamicLinks extends IonicNativePlugin {
      */
     createDynamicLink(): Promise<any>;
     createShortDynamicLink(): Promise<any>;
-    createUnguessableDynamicLink(): Promise<any>;
+    createUnguessableDynamicLink(opts: any): Promise<any>;
 }
