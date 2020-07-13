@@ -1,57 +1,18 @@
 import { IonicNativePlugin } from '@ionic-native/core';
-import { Observable } from 'rxjs';
-export interface IDynamicLink {
-    matchType: 'Weak' | 'Strong';
-    deepLink: string;
-}
-export interface ICreatedDynamicLink {
-    url: string;
-}
-export interface ILinkOptions {
-    domainUriPrefix?: string;
-    link?: string;
-    androidInfo?: {
-        androidPackageName?: string;
-        androidFallbackLink?: string;
-        androidMinPackageVersionCode?: number;
-    };
-    iosInfo?: {
-        iosBundleId?: string;
-        iosFallbackLink?: string;
-        iosIpadFallbackLink?: string;
-        iosIpadBundleId?: string;
-        iosAppStoreId?: string;
-    };
-    navigationInfo?: {
-        enableForcedRedirect?: boolean;
-    };
-    analyticsInfo?: {
-        googlePlayAnalytics?: {
-            utmSource?: string;
-            utmMedium?: string;
-            utmCampaign?: string;
-            utmTerm?: string;
-            utmContent?: string;
-        };
-        itunesConnectAnalytics?: {
-            at?: string;
-            ct?: string;
-            pt?: string;
-        };
-    };
-    socialMetaTagInfo?: {
-        socialTitle?: string;
-        socialDescription?: string;
-        socialImageLink?: string;
-    };
+export interface DynamicLinksOptions {
+    title: string;
+    message: string;
+    deepLink?: string;
+    callToActionText?: string;
 }
 /**
  * @beta
  * @name Firebase Dynamic Links
  * @description
- * Cordova plugin for Firebase Dynamic Links
+ * Cordova plugin for Firebase Invites and Firebase Dynamic Links
  *
  * Variables APP_DOMAIN and APP_PATH specify web URL where your app will start an activity to handle the link. They also used to setup support for App Indexing.
+ *
  * Go to firebase console and export google-services.json and GoogleService-Info.plist. Put those files into the root of your cordova app folder.
  *
  * Preferences:
@@ -59,55 +20,55 @@ export interface ILinkOptions {
  * Preferences GoogleIOSClientId and GoogleAndroidClientId are used to setup dynamic links when you have an app for several platforms.
  * You can find values at your GoogleService-Info.plist (key ANDROID_CLIENT_ID) and google-services.json (key client[0].oauth_client[0].client_id).
  *
- * config.xml:
+ *config.xml:
  * ```xml
- * <platform name="ios">
+ * <platform name="android">
  *     <preference name="GoogleIOSClientId" value="..." />
  * </platform>
- * <platform name="android">
+ * <platform name="ios">
  *     <preference name="GoogleAndroidClientId" value="..." />
  * </platform>
  * ```
  * @usage
  * ```typescript
- * import { FirebaseDynamicLinks } from '@ionic-native/firebase-dynamic-links/ngx';
+ * import { FirebaseDynamicLinks } from '@ionic-native/firebase-dynamic-links';
  *
  *
  * constructor(private firebaseDynamicLinks: FirebaseDynamicLinks) { }
  *
  * ...
- * // Handle the logic here after opening the app with the Dynamic link
+ * // The deepLink and callToActionText properties are optional
+ * const options: DynamicLinksOptions = {
+ *   title: 'My Title';
+ *   message: 'My message';
+ *   deepLink: 'http://example.com/';
+ *   callToActionText: 'Message on button';
+ * }
+ *
+ * this.firebaseDynamicLinks.sendInvitation(options)
+ *   .then((res: any) => console.log(res))
+ *   .catch((error: any) => console.error(error));
+ *
  * this.firebaseDynamicLinks.onDynamicLink()
- *   .subscribe((res: any) => console.log(res), (error:any) => console.log(error));
+ *   .then((res: any) => console.log(res)) //Handle the logic here after opening the app with the Dynamic link
+ *   .catch((error:any) => console.log(error));
  * ```
  *
  * @interfaces
  * DynamicLinksOptions
  */
-export declare class FirebaseDynamicLinksOriginal extends IonicNativePlugin {
+export declare class FirebaseDynamicLinks extends IonicNativePlugin {
     /**
      * Registers callback that is triggered on each dynamic link click.
-     * @return {Observable<IDynamicLink>} Returns an observable
+     * @return {Promise<any>} Returns a promise
      */
-    onDynamicLink(): Observable<IDynamicLink>;
+    onDynamicLink(): Promise<any>;
     /**
-     * Creates a Dynamic Link from the parameters. Returns a promise fulfilled with the new dynamic link url.
-     * @param {ILinkOptions} opt [Dynamic Link Parameters](https://github.com/chemerisuk/cordova-plugin-firebase-dynamiclinks#dynamic-link-parameters)
-     * @return {Promise<ICreatedDynamicLink>} Returns a promise with the url
+     * Display invitation dialog.
+     * @param options {DynamicLinksOptions} Some param to configure something
+     * @return {Promise<any>} Returns a promise
      */
-    createDynamicLink(opts: ILinkOptions): Promise<ICreatedDynamicLink>;
-    /**
-     * Creates a shortened Dynamic Link from the parameters. Shorten the path to a string that is only as long as needed to be unique, with a minimum length of 4 characters. Use this method if sensitive information would not be exposed if a short Dynamic Link URL were guessed.
-     * @param {ILinkOptions} opt [Dynamic Link Parameters](https://github.com/chemerisuk/cordova-plugin-firebase-dynamiclinks#dynamic-link-parameters)
-     * @return {Promise<ICreatedDynamicLink>} Returns a promise with the url
-     */
-    createShortDynamicLink(opts: ILinkOptions): Promise<ICreatedDynamicLink>;
-    /**
-     * Creates a Dynamic Link from the parameters. Shorten the path to an unguessable string. Such strings are created by base62-encoding randomly generated 96-bit numbers, and consist of 17 alphanumeric characters. Use unguessable strings to prevent your Dynamic Links from being crawled, which can potentially expose sensitive information.
-     * @param {ILinkOptions} opt [Dynamic Link Parameters](https://github.com/chemerisuk/cordova-plugin-firebase-dynamiclinks#dynamic-link-parameters)
-     * @return {Promise<ICreatedDynamicLink>} Returns a promise with the url
-     */
-    createUnguessableDynamicLink(opts: ILinkOptions): Promise<ICreatedDynamicLink>;
+    createDynamicLink(): Promise<any>;
+    createShortDynamicLink(): Promise<any>;
+    createUnguessableDynamicLink(): Promise<any>;
 }
-
-export declare const FirebaseDynamicLinks: FirebaseDynamicLinksOriginal;
