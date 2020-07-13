@@ -1,27 +1,27 @@
 {
-  "_from": "@ionic-native/firebase-dynamic-links@4.2.0",
-  "_id": "@ionic-native/firebase-dynamic-links@4.2.0",
+  "_from": "@ionic-native/firebase-dynamic-links@4.3.0",
+  "_id": "@ionic-native/firebase-dynamic-links@4.3.0",
   "_inBundle": false,
   "_location": "/@ionic-native/firebase-dynamic-links",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "@ionic-native/firebase-dynamic-links@4.2.0",
+    "raw": "@ionic-native/firebase-dynamic-links@4.3.0",
     "name": "@ionic-native/firebase-dynamic-links",
     "escapedName": "@ionic-native%2ffirebase-dynamic-links",
     "scope": "@ionic-native",
-    "rawSpec": "4.2.0",
+    "rawSpec": "4.3.0",
     "saveSpec": null,
-    "fetchSpec": "4.2.0"
+    "fetchSpec": "4.3.0"
   },
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/@ionic-native/firebase-dynamic-links/-/firebase-dynamic-links-4.2.0.tgz",
+  "_resolved": "https://registry.npmjs.org/@ionic-native/firebase-dynamic-links/-/firebase-dynamic-links-4.3.0.tgz",
   "_shasum": "c3ff28b7927abe6903f1620941d9f8453dc3c078",
-  "_spec": "@ionic-native/firebase-dynamic-links@4.2.0",
+  "_spec": "@ionic-native/firebase-dynamic-links@4.3.0",
   "_where": "/Users/macbook/Projects/wakacje.in/touralert-app-ios-wakacjein-dynamic-links-after",
   "author": {
     "name": "ionic"
@@ -46,5 +46,5 @@
     "url": "git+https://github.com/adam-drozdz-ie/ionic-native-firebase-dynamic-links.git"
   },
   "typings": "index.d.ts",
-  "version": "4.2.0"
+  "version": "4.3.0"
 }
