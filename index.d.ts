@@ -68,7 +68,7 @@ export declare class FirebaseDynamicLinks extends IonicNativePlugin {
      * @param options {DynamicLinksOptions} Some param to configure something
      * @return {Promise<any>} Returns a promise
      */
-    createDynamicLink(): Promise<any>;
+    createDynamicLink(opts: any): Promise<any>;
     createShortDynamicLink(): Promise<any>;
     createUnguessableDynamicLink(opts: any): Promise<any>;
 }
