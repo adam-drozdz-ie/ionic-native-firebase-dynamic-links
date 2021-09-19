@@ -1,4 +1,4 @@
-<a style="float:right;font-size:12px;" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/firebase-dynamic-links/index.ts#L8">
+<a style="float:right;font-size:12px;" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/firebase-dynamic-links/index.ts#L7">
   Improve this doc
 </a>
 
@@ -19,10 +19,9 @@ $ npm install --save @ionic-native/firebase-dynamic-links
 
 Plugin Repo: [https://github.com/chemerisuk/cordova-plugin-firebase-dynamiclinks](https://github.com/chemerisuk/cordova-plugin-firebase-dynamiclinks)
 
-Cordova plugin for Firebase Invites and Firebase Dynamic Links
+Cordova plugin for Firebase Dynamic Links
 
 Variables APP_DOMAIN and APP_PATH specify web URL where your app will start an activity to handle the link. They also used to setup support for App Indexing.
-
 Go to firebase console and export google-services.json and GoogleService-Info.plist. Put those files into the root of your cordova app folder.
 
 Preferences:
@@ -32,10 +31,10 @@ You can find values at your GoogleService-Info.plist (key ANDROID_CLIENT_ID) and
 
 config.xml:
 ```xml
-<platform name="android">
+<platform name="ios">
     <preference name="GoogleIOSClientId" value="..." />
 </platform>
-<platform name="ios">
+<platform name="android">
     <preference name="GoogleAndroidClientId" value="..." />
 </platform>
 ```
