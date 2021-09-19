@@ -77,6 +77,12 @@ var FirebaseDynamicLinks = (function (_super) {
        * @return {Observable<IDynamicLink>} Returns an observable
        */
     function () { return; };
+
+    FirebaseDynamicLinks.prototype.getDynamicLink = /**
+    * Determines if the app has a pending dynamic link and provide access to the dynamic link parameters
+    * @return {Observable<IDynamicLink>} Returns an observable
+    */
+ function () { return; };
     FirebaseDynamicLinks.decorators = [
         { type: Injectable },
     ];
@@ -89,6 +95,15 @@ var FirebaseDynamicLinks = (function (_super) {
         __metadata("design:paramtypes", []),
         __metadata("design:returntype", Observable)
     ], FirebaseDynamicLinks.prototype, "onDynamicLink", null);
+    __decorate([
+        Cordova({
+            callbackOrder: 'reverse',
+            observable: true,
+        }),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", Observable)
+    ], FirebaseDynamicLinks.prototype, "getDynamicLink", null);
     /**
      * @beta
      * @name Firebase Dynamic Links
