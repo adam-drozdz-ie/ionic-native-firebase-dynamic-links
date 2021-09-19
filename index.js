@@ -97,8 +97,7 @@ var FirebaseDynamicLinks = (function (_super) {
     ], FirebaseDynamicLinks.prototype, "onDynamicLink", null);
     __decorate([
         Cordova({
-            callbackOrder: 'reverse',
-            observable: true,
+            otherPromise: true
         }),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", []),
